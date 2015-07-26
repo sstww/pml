@@ -1,0 +1,17 @@
+{
+    "contents" : "---\ntitle: \"Practical Machine Learning Project\"\nauthor: \"Mark Xu\"\ndate: \"Saturday, July 11, 2015\"\noutput: html_document\n---\n\n***EXECUTIVE SUMMARY\n\n\n*** DATA\n```{r}\ntraining <- read.csv(file=\"https://d396qusza40orc.cloudfront.net/predmachlearn/pml-training.csv\",head=TRUE,sep=\",\")\ntest<-read.csv(file=\"https://d396qusza40orc.cloudfront.net/predmachlearn/pml-testing.csv\",head=TRUE,sep=\",\")\n\n```\n\nDefine training and test sub datasets from within the training dataset. \n\n```{r}\nlibrary(caret)\ninTrain<-createDataPartition(y=training$classe, p=0.10, list=FALSE)\nsubtraining<-training[inTrain,]\nsubtesting<-training[-inTrain,]\ndim(subtraining); dim(subtesting)\nmodelFit<-train(classe~., data=subtraining, method=\"glm\")\n```\n\nYou can also embed plots, for example:\n\n```{r, echo=FALSE}\nplot(cars)\n```\n\nNote that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.\n",
+    "created" : 1436644967211.000,
+    "dirty" : false,
+    "encoding" : "ISO8859-1",
+    "folds" : "",
+    "hash" : "144195201",
+    "id" : "9286D8D7",
+    "lastKnownWriteTime" : 1436750859,
+    "path" : "~/R/Coursera/pml/Project.rmd",
+    "project_path" : "Project.rmd",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "source_on_save" : false,
+    "type" : "r_markdown"
+}
